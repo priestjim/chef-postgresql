@@ -24,7 +24,7 @@
 
 # Function to test the date order.
 # Used in recipes/config_initdb.rb to set this attribute:
-#    node.default['postgresql']['config']['datestyle']
+#    node.default['postgresql']['datestyle']
 def locale_date_order
     # Test locale conversion of mon=11, day=22, year=33
     testtime = DateTime.new(2033,11,22,0,0,0,"-00:00")
@@ -62,7 +62,7 @@ end
 # original initdb source code.
 #
 # By examining the system configuration, this recipe will set the
-# following node.default['postgresql']['config'] attributes:
+# following node.default['postgresql'] attributes:
 #
 # - Locale and Formatting -
 #   * datestyle
@@ -77,25 +77,25 @@ end
 # Locale Configuration
 
 # See libraries/default.rb for the locale_date_order() method.
-node.default['postgresql']['config']['datestyle'] = "iso, #{locale_date_order()}"
+node.default['postgresql']['datestyle'] = "iso, #{locale_date_order()}"
 
 # According to the locale(1) manpage, the locale settings are determined
 # by environment variables according to the following precedence:
 # LC_ALL > (LC_MESSAGES, LC_MONETARY, LC_NUMERIC, LC_TIME) > LANG.
 
-node.default['postgresql']['config']['lc_messages'] =
+node.default['postgresql']['lc_messages'] =
   [ ENV['LC_ALL'], ENV['LC_MESSAGES'], ENV['LANG'] ].compact.first
 
-node.default['postgresql']['config']['lc_monetary'] =
+node.default['postgresql']['lc_monetary'] =
   [ ENV['LC_ALL'], ENV['LC_MONETARY'], ENV['LANG'] ].compact.first
 
-node.default['postgresql']['config']['lc_numeric'] =
+node.default['postgresql']['lc_numeric'] =
   [ ENV['LC_ALL'], ENV['LC_NUMERIC'], ENV['LANG'] ].compact.first
 
-node.default['postgresql']['config']['lc_time'] =
+node.default['postgresql']['lc_time'] =
   [ ENV['LC_ALL'], ENV['LC_TIME'], ENV['LANG'] ].compact.first
 
-node.default['postgresql']['config']['default_text_search_config'] =
+node.default['postgresql']['default_text_search_config'] =
   case ENV['LANG']
   when /da_.*/
     'pg_catalog.danish'
