@@ -46,6 +46,19 @@ default["postgresql"]["ident_file"]                      = "/etc/postgresql/#{no
 default["postgresql"]["external_pid_file"]               = "/var/run/postgresql/#{node["postgresql"]["version"]}-main.pid"
 
 #------------------------------------------------------------------------------
+# Extensions
+#------------------------------------------------------------------------------
+
+default['postgresql']['contrib_extensions'] = [
+  'pageinspect',
+  'pg_buffercache',
+  'pg_freespacemap',
+  'pgrowlocks',
+  'pg_stat_statements',
+  'pgstattuple'
+]
+
+#------------------------------------------------------------------------------
 # CONNECTIONS AND AUTHENTICATION
 #------------------------------------------------------------------------------
 
@@ -210,11 +223,11 @@ default["postgresql"]["join_collapse_limit"]             = 8
 
 # where to log
 default["postgresql"]["log_destination"]                 = "stderr"
-default["postgresql"]["logging_collector"]               = "off"
+default["postgresql"]["logging_collector"]               = "on"
 default["postgresql"]["log_directory"]                   = "pg_log"
 default["postgresql"]["log_filename"]                    = "postgresql-%Y-%m-%d_%H%M%S.log"
 default["postgresql"]["log_file_mode"]                   = 0600
-default["postgresql"]["log_truncate_on_rotation"]        = "off"
+default["postgresql"]["log_truncate_on_rotation"]        = "on"
 default["postgresql"]["log_rotation_age"]                = "1d"
 default["postgresql"]["log_rotation_size"]               = "10MB"
 
