@@ -6,7 +6,7 @@
 #
 # Based on code found in https://github.com/hw-cookbooks/postgresql
 
-include Chef::Mixin::ShellOut
+::Chef::Recipe.send(:include, ::Chef::Mixin::ShellOut)
 
 #######
 # Function to execute an SQL statement in the template1 database.
