@@ -54,7 +54,6 @@ default['postgresql']['contrib_extensions'] = [
   'pg_buffercache',
   'pg_freespacemap',
   'pgrowlocks',
-  'pg_stat_statements',
   'pgstattuple'
 ]
 
@@ -91,7 +90,6 @@ default["postgresql"]["password_encryption"]             = "on"
 default["postgresql"]["db_user_namespace"]               = "off"
 
 # kerberos and gssapi
-default["postgresql"]["db_user_namespace"]               = "off"
 default["postgresql"]["krb_server_keyfile"]              = ""
 default["postgresql"]["krb_srvname"]                     = "postgres"
 default["postgresql"]["krb_caseins_users"]               = "off"
