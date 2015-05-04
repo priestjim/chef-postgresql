@@ -497,20 +497,20 @@ log_temp_files = <%= node["postgresql"]["log_temp_files"] %>      # log temporar
 
 # - Query/Index Statistics Collector -
 
-#track_activities = <%= node["postgresql"]["track_activities"] %>
-#track_counts = <%= node["postgresql"]["track_counts"] %>
-#track_functions = <%= node["postgresql"]["track_functions"] %>     # none, pl, all
-#track_activity_query_size = <%= node["postgresql"]["track_activity_query_size"] %>   # (change requires restart)
-#update_process_title = <%= node["postgresql"]["update_process_title"] %>
-#stats_temp_directory = '<%= node["postgresql"]["stats_temp_directory"] %>'
+track_activities = <%= node["postgresql"]["track_activities"] %>
+track_counts = <%= node["postgresql"]["track_counts"] %>
+track_functions = <%= node["postgresql"]["track_functions"] %>     # none, pl, all
+track_activity_query_size = <%= node["postgresql"]["track_activity_query_size"] %>   # (change requires restart)
+update_process_title = <%= node["postgresql"]["update_process_title"] %>
+stats_temp_directory = '<%= node["postgresql"]["stats_temp_directory"] %>'
 
 
 # - Statistics Monitoring -
 
-#log_parser_stats = <%= node["postgresql"]["log_parser_stats"] %>
-#log_planner_stats = <%= node["postgresql"]["log_planner_stats"] %>
-#log_executor_stats = <%= node["postgresql"]["log_executor_stats"] %>
-#log_statement_stats = <%= node["postgresql"]["log_statement_stats"] %>
+log_parser_stats = <%= node["postgresql"]["log_parser_stats"] %>
+log_planner_stats = <%= node["postgresql"]["log_planner_stats"] %>
+log_executor_stats = <%= node["postgresql"]["log_executor_stats"] %>
+log_statement_stats = <%= node["postgresql"]["log_statement_stats"] %>
 
 
 #------------------------------------------------------------------------------
